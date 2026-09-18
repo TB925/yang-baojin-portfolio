@@ -54,7 +54,7 @@ function Experience({ ready }) {
   return <section className="experience wrap" aria-label="经历概览" data-reveal>
     <div className="experience-intro"><span className="overline">EXPERIENCE, IN NUMBERS</span><p>把每一次想象，<br />变成值得记住的现场。</p></div>
     {[ [6, '年汽车行业活动经验'], [100, '主导汽车活动'], [20, '参与车展主办方项目'] ].map(([value, label]) =>
-      <div className="stat" key={label}><strong aria-label={`${value}+`}><CountUp from={0} to={value} separator="," direction="up" duration={2} className="count-up-text" delay={4} ready={ready} /><span className="stat-plus" aria-hidden="true">+</span></strong><span>{label}</span></div>
+      <div className="stat" key={label}><strong aria-label={`${value}+`}><CountUp from={0} to={value} separator="," direction="up" duration={2} className="count-up-text" delay={1} ready={ready} /><span className="stat-plus" aria-hidden="true">+</span></strong><span>{label}</span></div>
     )}
     <span className="experience-source">据个人简历</span>
   </section>;
