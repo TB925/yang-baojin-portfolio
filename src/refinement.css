@@ -288,3 +288,13 @@
   .site-content *, .site-content *::before, .site-content *::after { animation: none !important; transition: none !important; }
   .project-open:hover .project-cover-image, #real-estate .planning-card:hover, .contact-circle:hover { transform: none; }
 }
+
+/* Public contact information, shared by the footer and contact dialog. */
+.contact-details { display: grid; gap: 0; margin-top: 28px; max-width: 440px; }
+.contact-details a { display: flex; align-items: center; gap: 18px; min-height: 56px; padding: 12px 0; border-bottom: 1px solid #95704330; transition: color .2s; }
+.contact-details a:hover { color: var(--orange); }
+.contact-details a > span { flex-shrink: 0; font-size: 12px; color: #806a50; }
+.contact-details strong { font-size: clamp(16px, 2vw, 21px); font-weight: 500; overflow-wrap: anywhere; min-width: 0; }
+.contact-details svg { margin-left: auto; }
+.contact-dialog .contact-details { max-width: none; margin-bottom: 12px; }
+@media (max-width: 480px) { .contact-details a { gap: 12px; } }

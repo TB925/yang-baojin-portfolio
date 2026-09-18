@@ -230,14 +230,21 @@ function About() {
   </section>;
 }
 
+function ContactDetails() {
+  return <div className="contact-details" aria-label="联系方式">
+    <a href={`tel:${profile.phone}`}><span>电话</span><strong>{profile.phone}</strong><Arrow diagonal width="18" height="18" /></a>
+    <a href={`mailto:${profile.email}`}><span>邮箱</span><strong>{profile.email}</strong><Arrow diagonal width="18" height="18" /></a>
+  </div>;
+}
+
 function Contact({ onOpen }) {
-  return <section className="contact-section" id="contact" aria-labelledby="contact-title"><div className="wrap"><div className="contact-top"><span className="overline">NEXT / SOMETHING GOOD STARTS HERE</span><span className="contact-asterisk" aria-hidden="true">✳</span></div><div className="contact-main" data-reveal><div><h2 id="contact-title">下一个好现场，<br />从<span>一次交流</span>开始。</h2><p>关于活动创意、品牌体验，或一个值得尝试的新想法。</p></div><button className="contact-circle" onClick={onOpen} aria-label="查看联系信息"><Arrow diagonal width="34" height="34" /><span>LET’S TALK</span></button></div><div className="contact-bottom"><span>活动策划 / 项目统筹 / 品牌体验</span><span>成都 · 期待更多可能</span></div></div></section>;
+  return <section className="contact-section" id="contact" aria-labelledby="contact-title"><div className="wrap"><div className="contact-top"><span className="overline">NEXT / SOMETHING GOOD STARTS HERE</span><span className="contact-asterisk" aria-hidden="true">✳</span></div><div className="contact-main" data-reveal><div><h2 id="contact-title">下一个好现场，<br />从<span>一次交流</span>开始。</h2><p>关于活动创意、品牌体验，或一个值得尝试的新想法。</p><ContactDetails /></div><button className="contact-circle" onClick={onOpen} aria-label="查看联系信息"><Arrow diagonal width="34" height="34" /><span>LET’S TALK</span></button></div><div className="contact-bottom"><span>活动策划 / 项目统筹 / 品牌体验</span><span>成都 · 期待更多可能</span></div></div></section>;
 }
 
 function ContactDialog({ onClose }) {
   const dialogRef = useRef(null);
   useEffect(() => { const el = dialogRef.current; el.showModal(); const previousOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden'; return () => { document.body.style.overflow = previousOverflow; }; }, []);
-  return <dialog className="contact-dialog" ref={dialogRef} aria-labelledby="contact-dialog-title" onClose={onClose} onClick={event => { if (event.target === event.currentTarget) dialogRef.current.close(); }}><div className="contact-dialog-inner"><button className="close-dialog" onClick={() => dialogRef.current.close()} aria-label="关闭联系信息" autoFocus>关闭 <span>×</span></button><span className="overline">LET’S MAKE IT HAPPEN</span><h2 id="contact-dialog-title">期待与你交流。</h2>{profile.emailPlacementConfirmed ? <><p>从一个简单的想法开始，聊聊我们能一起做些什么。</p><a className="button button-primary" href={`mailto:${profile.email}`}>发送邮件 <Arrow diagonal /></a><p className="contact-email">{profile.email}</p></> : <><p>联系入口已预留。邮箱、电话或微信的展示方式，确认后会在这里更新。</p><span className="contact-pending">基础预览版 · 联系方式待确认</span></>}</div></dialog>;
+  return <dialog className="contact-dialog" ref={dialogRef} aria-labelledby="contact-dialog-title" onClose={onClose} onClick={event => { if (event.target === event.currentTarget) dialogRef.current.close(); }}><div className="contact-dialog-inner"><button className="close-dialog" onClick={() => dialogRef.current.close()} aria-label="关闭联系信息" autoFocus>关闭 <span>×</span></button><span className="overline">LET’S MAKE IT HAPPEN</span><h2 id="contact-dialog-title">期待与你交流。</h2><p>从一个简单的想法开始，聊聊我们能一起做些什么。</p><ContactDetails /></div></dialog>;
 }
 
 export default function App() {

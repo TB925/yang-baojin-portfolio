@@ -10,9 +10,8 @@ export const profile = {
   name: '杨宝金',
   city: '成都',
   title: '活动项目经理 / 活动策划',
-  email: '',
-  // 联系方式的公开展示位置尚未逐项确认，基础版本不展示简历中的电话号码。
-  emailPlacementConfirmed: false,
+  email: '1757372225@qq.com',
+  phone: '13061466935',
   brands: ['长安福特', '吉利汽车', '东风日产', '领克汽车', '广汽传祺'],
 };
 
