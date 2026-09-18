@@ -1,0 +1,23 @@
+.fold-segment {
+  display: inline-block;
+  perspective: var(--fold-perspective, 700px);
+  vertical-align: baseline;
+}
+.fold-piece {
+  position: relative;
+  display: inline-block;
+  transform-origin: 50% 100%;
+  backface-visibility: hidden;
+}
+.fold-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: multiply;
+  background: linear-gradient(0deg, #0009, #0003 42%, #ffffff42);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fold-piece { transform: none !important; opacity: 1 !important; }
+  .fold-shade { display: none; }
+}

@@ -1,0 +1,21 @@
+.case-videos { margin-top: 45px; padding-top: 35px; border-top: 1px solid var(--line); }
+.case-videos h3 { font-size: 28px; font-weight: 500; letter-spacing: -1px; margin: 10px 0 0; }
+.case-videos .section-heading { margin-bottom: 24px; }
+.case-videos .section-heading>p { font-size: 12px; }
+.case-video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.case-video-grid figure { min-width: 0; margin: 0; }
+.case-video-grid figure:only-child { grid-column: 1 / -1; }
+.case-video-grid video { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; background: #25271f; border-radius: 0; }
+.case-video-grid figcaption { display: flex; gap: 10px; align-items: center; margin-top: 15px; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.case-video-number { font: italic 19px var(--serif); color: #b29066; }
+.case-video-grid figcaption small { margin-left: auto; white-space: nowrap; font: 9px Arial, sans-serif; letter-spacing: .6px; }
+.case-video-error { font-size: 12px; color: var(--muted); }
+.case-video-error a { color: var(--orange); text-decoration: underline; }
+@media(max-width:760px) {
+  .case-videos { padding-top: 23px; }
+  .case-videos h3 { font-size: 26px; }
+  .case-video-grid { grid-template-columns: 1fr; gap: 28px; }
+  .case-video-grid figcaption { margin-top: 10px; }
+  .case-toolbar:has(.case-video-jump)>span { max-width: 50px; }
+  .case-toolbar:has(.case-video-jump) .case-jump-nav button { padding-inline: 5px; white-space: nowrap; }
+}

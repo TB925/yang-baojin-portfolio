@@ -1,0 +1,64 @@
+.expertise-section { background: linear-gradient(130deg, #f2f0e7, #f5f3eb 60%, #f5ebdc); }
+.expertise-section > .section { padding-block: 64px; }
+.expertise-section .section-heading { margin-bottom: 30px; gap: 24px; }
+.expertise-section .section-heading h2 { font-size: clamp(30px, 3vw, 46px); }
+.expertise-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.expertise-card { padding: 24px 28px; min-width: 0; display: flex; flex-direction: column; background: #ffffff70; border: 1px solid #dcd6c780; border-radius: 5px 26px 5px 5px; transition: background .3s, border-color .3s; }
+.expertise-card-top { display: flex; align-items: center; gap: 12px; color: #9d8566; }
+.expertise-card-top > span:first-child { font: italic 22px var(--serif); color: #b99265; }
+.expertise-card-top > span:nth-child(2) { font: 10px Arial, sans-serif; letter-spacing: 1.8px; }
+.expertise-card h3 { font-size: clamp(20px, 1.8vw, 27px); font-weight: 500; letter-spacing: -.5px; line-height: 1.5; margin: 14px 0 10px; }
+.expertise-card > p { font-size: 15px; line-height: 1.8; color: var(--muted); margin: 0 0 18px; }
+.expertise-tags { display: flex; flex-wrap: wrap; gap: 7px 15px; padding-top: 13px; margin-top: auto; border-top: 1px solid #dcd6c780; color: #8a806f; font-size: 12px; line-height: 1.7; }
+.expertise-tags > span::before { content: '·'; color: var(--orange); margin-right: 6px; }
+@media(hover:hover) { .expertise-card:hover { background: #ffffffa8; border-color: #c8ae8d; } }
+.expertise-process { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 26px; padding-top: 24px; border-top: 1px solid #d9d3c5; }
+.expertise-process ol { display: flex; align-items: center; gap: 25px; list-style: none; margin: 0; padding: 0; }
+.expertise-process li { display: flex; align-items: center; gap: 12px; font-size: 13px; white-space: nowrap; }
+.expertise-process li > span { font: italic 13px var(--serif); color: #b99265; }
+.expertise-process svg { width: 15px; color: #b9ac96; }
+@media(max-width:1000px) { .expertise-process { align-items: flex-start; flex-direction: column; gap: 18px; } .expertise-process ol { width: 100%; justify-content: space-between; } }
+@media(max-width:760px) {
+  .expertise-section > .section { padding-block: 42px; }
+  .expertise-section .section-heading { gap: 14px; margin-bottom: 24px; }
+  .expertise-grid { grid-template-columns: 1fr; gap: 12px; }
+  .expertise-card { padding: 20px; }
+  .expertise-card h3 { font-size: 21px; margin-top: 10px; }
+  .expertise-card > p { font-size: 14px; margin-bottom: 14px; }
+  .expertise-tags { gap: 6px 12px; }
+  .expertise-process ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 22px; }
+  .expertise-process li { gap: 9px; }
+  .expertise-process svg { margin-left: auto; }
+  .expertise-process li:nth-child(2) svg { display: none; }
+}
+
+/* Small animated studies: direction, ideas, delivery, and connection. */
+.expertise-card { position: relative; isolation: isolate; overflow: hidden; }
+.expertise-card::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(210px circle at var(--pointer-x, 85%) var(--pointer-y, 15%), #ffd69b80, transparent 75%); opacity: 0; transition: opacity .45s; }
+.expertise-card::after { content: ''; position: absolute; right: -40px; top: -65px; width: 220px; height: 180px; pointer-events: none; z-index: -1; border-radius: 50%; background: radial-gradient(ellipse, #ffe1a64d, transparent 70%); }
+.expertise-card-top { min-height: 52px; position: relative; padding-right: 115px; }
+.capability-visual { position: absolute; width: 118px; height: 64px; right: -8px; top: -6px; overflow: visible; pointer-events: none; }
+.visual-faint { stroke: #c8aa805c; stroke-width: 1; }
+.visual-line { stroke: #c9965b; stroke-width: 1; }
+.capability-visual g, .broadcast-ring { transform-box: view-box; transform-origin: 66px 36px; }
+.compass-needle { animation: compass-find 7s ease-in-out infinite; }
+.visual-orbit { animation: orbit-idea 18s linear infinite; }
+.creative-orbits { animation: orbit-idea 22s linear infinite; }
+.creative-spark { animation: spark-breathe 4s ease-in-out infinite; }
+.execution-node { animation: node-arrive 4.5s ease-in-out infinite; animation-delay: calc(var(--node) * .5s); }
+.execution-path { animation: execution-flow 5s linear infinite; }
+.broadcast-ring { stroke: #df9b57; stroke-width: 1; animation: broadcast-wave 4s ease-out infinite; }
+.broadcast-ring.ring-late { animation-delay: 2s; }
+.expertise-process li > span { display: grid; place-items: center; width: 27px; height: 27px; border: 1px solid #d3bd9d70; border-radius: 50%; animation: process-step 12s ease-in-out infinite; animation-delay: calc(var(--step) * 3s); }
+.expertise-section .capability-visual *, .expertise-process li > span { animation-play-state: paused; }
+.expertise-section[data-visible="on"] [data-motion="on"] .capability-visual *, .expertise-section[data-visible="on"] .expertise-process[data-motion="on"] li > span { animation-play-state: running; }
+@media(hover:hover) and (pointer:fine) { .expertise-card:hover::before { opacity: 1; } }
+@keyframes compass-find { 0%, 100% { transform: rotate(-32deg); } 35%, 60% { transform: rotate(35deg); } 80% { transform: rotate(20deg); } }
+@keyframes orbit-idea { to { transform: rotate(360deg); } }
+@keyframes spark-breathe { 0%, 100% { transform: scale(.86) rotate(0deg); } 50% { transform: scale(1.12) rotate(45deg); } }
+@keyframes node-arrive { 0%, 65%, 100% { opacity: .5; transform: translateY(2px); } 20%, 45% { opacity: 1; transform: translateY(-2px); } }
+@keyframes execution-flow { to { stroke-dashoffset: -45; } }
+@keyframes broadcast-wave { 0% { transform: scale(.8); opacity: .75; } 100% { transform: scale(2.8); opacity: 0; } }
+@keyframes process-step { 0%, 22% { background: #ec8750; color: #fffdf4; border-color: #ec8750; box-shadow: 0 0 0 4px #edaf7520; } 27%, 100% { background: transparent; color: #b99265; border-color: #d3bd9d70; box-shadow: 0 0 0 0 #edaf7500; } }
+@media(max-width:760px) { .expertise-card-top { min-height: 48px; padding-right: 98px; } .capability-visual { width: 105px; height: 57px; top: -5px; right: -7px; } .expertise-process li > span { width: 25px; height: 25px; } }
+@media(prefers-reduced-motion:reduce) { .expertise-section .capability-visual *, .expertise-process li > span { animation: none !important; } .expertise-card::before { display: none; } .broadcast-ring.ring-late { transform: scale(2); opacity: .3; } }

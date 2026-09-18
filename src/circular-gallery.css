@@ -1,0 +1,10 @@
+.circular-gallery { cursor: grab; touch-action: pan-y; isolation: isolate; }
+.circular-gallery.is-dragging { cursor: grabbing; }
+.circular-gallery > canvas { position: absolute; inset: 0; display: block; z-index: 1; pointer-events: none; }
+.circular-gallery > .circular-gallery-fallback { animation: none; user-select: none; -webkit-user-drag: none; }
+.circular-gallery.is-rendered > .circular-gallery-fallback { opacity: 0; }
+.circular-gallery .photo-enlarge { z-index: 2; cursor: zoom-in; }
+.gallery-drag-hint { position: absolute; z-index: 2; bottom: 16px; left: 16px; color: var(--gallery-label-color, white); background: #24241f80; border: 1px solid #ffffff30; backdrop-filter: blur(8px); padding: 7px 11px; border-radius: 20px; font-size: 11px; pointer-events: none; }
+.circular-gallery:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+
+.story-gallery .story-photo, .story-gallery .photo-filmstrip img { border-radius: 0; }
